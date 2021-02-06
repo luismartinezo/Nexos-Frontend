@@ -12,7 +12,6 @@ import { CocineroComponent } from "./Components/cocinero/cocinero.component";
 import { CamareroComponent } from "./Components/camarero/camarero.component";
 import { MesaComponent } from "./Components/mesa/mesa.component";
 import { ClienteService } from "./Services/cliente.service";
-import { AgregarComponent } from "./Components/cliente/agregar/agregar.component";
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
@@ -25,8 +24,7 @@ import { HttpClientModule } from "@angular/common/http";
     ClienteComponent,
     CocineroComponent,
     CamareroComponent,
-    MesaComponent,
-    AgregarComponent
+    MesaComponent
   ],
   bootstrap: [AppComponent],
   providers: [ClienteService]
