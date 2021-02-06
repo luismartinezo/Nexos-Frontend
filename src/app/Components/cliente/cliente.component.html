@@ -1,30 +1,26 @@
+<button type="button" class="btn btn-primary float-right" routerLink="nuevoCliente">Nuevo Cliente</button>
+<h2>Clientes con gastos mayores a 100.000</h2>
 <table class="table">
 	<thead class="thead-dark">
 		<tr>
 			<th scope="col">#</th>
-			<th scope="col">First</th>
-			<th scope="col">Last</th>
-			<th scope="col">Handle</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Apellidos</th>
+			<th scope="col">Observaciones</th>
+			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>@mdo</td>
-		</tr>
-		<tr>
-			<th scope="row">2</th>
-			<td>Jacob</td>
-			<td>Thornton</td>
-			<td>@fat</td>
-		</tr>
-		<tr>
-			<th scope="row">3</th>
-			<td>Larry</td>
-			<td>the Bird</td>
-			<td>@twitter</td>
+		<tr *ngFor="let cliente of clientes">
+			<th scope="row">{{cliente.id}}</th>
+			<td>{{cliente.nombre}}</td>
+			<td>{{cliente.apellido1}} {{cliente.apellido2}}</td>
+			<td>{{cliente.observaciones}}</td>
+			<td><button type="button" class="btn btn-info">Detalle</button></td>
+			<td><button type="button" class="btn btn-warning">Editar</button></td>
+			<td><button type="button" class="btn btn-danger">Eliminar</button></td>
 		</tr>
 	</tbody>
 </table>
