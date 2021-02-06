@@ -1,6 +1,8 @@
 # FrontEnd
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+Se desea crear una aplicación que permita registrar las facturas de las ventas
+realizadas en el restaurante `LA MEJOR COCINA`.
 
 ## Instalacion
 * Descargar proyecto desde el repositorio por medio de git o como un paquete .zip
