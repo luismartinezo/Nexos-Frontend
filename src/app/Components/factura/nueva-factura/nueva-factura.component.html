@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Nueva Factura</h2>
+			<form name="form" (ngSubmit)="onCreate(f)" #f="ngForm" novalidate>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<h6>Cliente</h6>
+							<select name="cliente_id"  [(ngModel)]="form.cliente_id" class="form-control">
+              <option value="0">-Select-</option>
+              <option *ngFor="let item of clientes" value="{{item.id}}">{{item.nombre}} {{item.apellido1}}</option>
+            </select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<h6>Camarero</h6>
+						<div class="form-group">
+							<select name="camarero_id"  [(ngModel)]="form.camarero_id" class="form-control">
+              <option value="0">-Select-</option>
+              <option *ngFor="let item of camareros" value="{{item.id}}">{{item.nombre}} {{item.apellido1}}</option>
+            </select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<h6>Mesa</h6>
+							<select name="mesa_id"  [(ngModel)]="form.mesa_id" class="form-control">
+              <option value="0">-Select-</option>
+              <option *ngFor="let item of mesas" value="{{item.id}}">{{item.id}}</option>
+            </select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success btn-lg" [disabled]="!f.valid">Crear</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

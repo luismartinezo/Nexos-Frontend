@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "../../environment/environment";
 import { Cliente } from "../Models/cliente";
 
 const cabecera = {
@@ -14,36 +15,39 @@ export class ClienteService {
   constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Cliente[]> {
-    return this.httpClient.get<Cliente[]>(this.clienteURL + "lista", cabecera);
+    return this.httpClient.get<Cliente[]>(
+      environment + "cliente/lista",
+      cabecera
+    );
   }
 
   public detalle(id: number): Observable<Cliente> {
     return this.httpClient.get<Cliente>(
-      this.clienteURL + `detalle/${id}`,
+      environment + `cliente/detalle/${id}`,
       cabecera
     );
   }
 
-  public crear(producto: Cliente): Observable<any> {
+  public crear(cliente: Cliente): Observable<any> {
     return this.httpClient.post<any>(
-      this.clienteURL + "nuevo",
-      producto,
+      environment + "cliente/nuevo",
+      cliente,
       cabecera
     );
   }
 
-  public editar(producto: Cliente, id: number): Observable<any> {
-    console.log(producto);
+  public editar(cliente: Cliente, id: number): Observable<any> {
+    console.log(cliente);
     return this.httpClient.put<any>(
-      this.clienteURL + `actualizar/${id}`,
-      producto,
+      environment + `cliente/actualizar/${id}`,
+      cliente,
       cabecera
     );
   }
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      this.clienteURL + `borrar/${id}`,
+      environment + `cliente/borrar/${id}`,
       cabecera
     );
   }
