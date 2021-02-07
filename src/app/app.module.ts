@@ -15,6 +15,16 @@ import { ClienteService } from "./Services/cliente.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FacturaComponent } from './Components/factura/factura.component';
 import { NuevoClienteComponent } from './Components/cliente/nuevo-cliente/nuevo-cliente.component';
+import { NuevoCocineroComponent } from './Components/cocinero/nuevo-cocinero/nuevo-cocinero.component';
+import { NuevoCamareroComponent } from './Components/camarero/nuevo-camarero/nuevo-camarero.component';
+import { NuevaFacturaComponent } from './Components/factura/nueva-factura/nueva-factura.component';
+import { NuevaMesaComponent } from './Components/mesa/nueva-mesa/nueva-mesa.component';
+import { FacturaService } from './Services/factura.service';
+import { CamareroService } from './Services/camarero.service';
+import { MesaService } from './Services/mesa.service';
+import { CocineroService } from './Services/cocinero.service';
+import { DetalleFacturaService } from './Services/detalle-factura.service';
+import { DetalleFacturaComponent } from './Components/detalle-factura/detalle-factura.component';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
@@ -28,9 +38,14 @@ import { NuevoClienteComponent } from './Components/cliente/nuevo-cliente/nuevo-
     CamareroComponent,
     MesaComponent,
     FacturaComponent,
-    NuevoClienteComponent
+    NuevoClienteComponent,
+    NuevoCocineroComponent,
+    NuevoCamareroComponent,
+    NuevaFacturaComponent,
+    NuevaMesaComponent,
+    DetalleFacturaComponent
   ],
   bootstrap: [AppComponent],
-  providers: [ClienteService]
+  providers: [ClienteService, FacturaService, CamareroService, MesaService, CocineroService, DetalleFacturaService]
 })
 export class AppModule {}
