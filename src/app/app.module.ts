@@ -13,6 +13,8 @@ import { CamareroComponent } from "./Components/camarero/camarero.component";
 import { MesaComponent } from "./Components/mesa/mesa.component";
 import { ClienteService } from "./Services/cliente.service";
 import { HttpClientModule } from "@angular/common/http";
+import { FacturaComponent } from './Components/factura/factura.component';
+import { NuevoClienteComponent } from './Components/cliente/nuevo-cliente/nuevo-cliente.component';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
@@ -24,7 +26,9 @@ import { HttpClientModule } from "@angular/common/http";
     ClienteComponent,
     CocineroComponent,
     CamareroComponent,
-    MesaComponent
+    MesaComponent,
+    FacturaComponent,
+    NuevoClienteComponent
   ],
   bootstrap: [AppComponent],
   providers: [ClienteService]
