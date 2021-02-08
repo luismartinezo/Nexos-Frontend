@@ -15,22 +15,19 @@ export class ClienteService {
   constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Cliente[]> {
-    return this.httpClient.get<Cliente[]>(
-      environment + "cliente/lista",
-      cabecera
-    );
+    return this.httpClient.get<Cliente[]>(this.clienteURL + "lista", cabecera);
   }
 
   public detalle(id: number): Observable<Cliente> {
     return this.httpClient.get<Cliente>(
-      environment + `cliente/detalle/${id}`,
+      this.clienteURL + `detalle/${id}`,
       cabecera
     );
   }
 
   public crear(cliente: Cliente): Observable<any> {
     return this.httpClient.post<any>(
-      environment + "cliente/nuevo",
+      this.clienteURL + "nuevo",
       cliente,
       cabecera
     );
@@ -39,7 +36,7 @@ export class ClienteService {
   public editar(cliente: Cliente, id: number): Observable<any> {
     console.log(cliente);
     return this.httpClient.put<any>(
-      environment + `cliente/actualizar/${id}`,
+      this.clienteURL + `actualizar/${id}`,
       cliente,
       cabecera
     );
@@ -47,7 +44,7 @@ export class ClienteService {
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      environment + `cliente/borrar/${id}`,
+      this.clienteURL + `borrar/${id}`,
       cabecera
     );
   }

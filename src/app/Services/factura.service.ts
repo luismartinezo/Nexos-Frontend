@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "../../environment/environment";
 import { Factura } from "../Models/factura";
 
 const cabecera = {
@@ -10,25 +9,26 @@ const cabecera = {
 
 @Injectable()
 export class FacturaService {
+  facturaURL = "http://localhost:8080/api/v1/";
   constructor(private httpClient: HttpClient) {}
 
   public listar(): Observable<Factura[]> {
     return this.httpClient.get<Factura[]>(
-      environment + "factura/lista",
+      this.facturaURL + "factura/lista",
       cabecera
     );
   }
 
   public detalle(id: number): Observable<Factura> {
     return this.httpClient.get<Factura>(
-      environment + `factura/detalle/${id}`,
+      this.facturaURL + `factura/detalle/${id}`,
       cabecera
     );
   }
 
   public crear(producto: Factura): Observable<any> {
     return this.httpClient.post<any>(
-      environment + "factura/nuevo",
+      this.facturaURL + "factura/nuevo",
       producto,
       cabecera
     );
@@ -37,7 +37,7 @@ export class FacturaService {
   public editar(producto: Factura, id: number): Observable<any> {
     console.log(producto);
     return this.httpClient.put<any>(
-      environment + `factura/actualizar/${id}`,
+      this.facturaURL + `factura/actualizar/${id}`,
       producto,
       cabecera
     );
@@ -45,7 +45,7 @@ export class FacturaService {
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      environment + `factura/borrar/${id}`,
+      this.facturaURL + `factura/borrar/${id}`,
       cabecera
     );
   }

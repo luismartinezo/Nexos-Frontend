@@ -15,10 +15,16 @@ import { MesaService } from "../../../Services/mesa.service";
   styleUrls: ["./nueva-factura.component.css"]
 })
 export class NuevaFacturaComponent implements OnInit {
-  form: any = {};
-  clientes: Cliente[];
-  facturas: Factura[];
-  camareros: Camarero[];
+  form: any = {
+    id: 0,
+    fecha: Date,
+    camarero_id: 0,
+    cliente_id: 0,
+    mesa_id: 0
+  };
+  clientes: Cliente[] = [];
+  facturas: Factura[] = [];
+  camareros: Camarero[] = [];
   mesas: Mesa[] = [];
   mensajeFail = "";
   mensajeOK = "";
@@ -37,6 +43,20 @@ export class NuevaFacturaComponent implements OnInit {
     this.cargarMesas();
   }
 
+onCreate(form): void {
+    console.log(form);
+    this.facturaService.crear(this.form).subscribe(
+      data => {
+        this.mensajeOK = data.message;
+        alert(this.mensajeOK);
+        this.router.navigate(["facturas"]);
+      },
+      (err: any) => {
+        this.mensajeFail = err.error.message;
+      }
+    );
+  }
+  
   cargarClientes(): void {
     this.clienteService.lista().subscribe(
       data => {
@@ -67,18 +87,6 @@ export class NuevaFacturaComponent implements OnInit {
       },
       (err: any) => {
         console.log(err);
-      }
-    );
-  }
-  onCreate(form): void {
-    this.facturaService.crear(this.form).subscribe(
-      data => {
-        this.mensajeOK = data.mensaje;
-        alert(this.mensajeOK);
-        this.router.navigate(["facturas"]);
-      },
-      (err: any) => {
-        this.mensajeFail = err.error.mensaje;
       }
     );
   }

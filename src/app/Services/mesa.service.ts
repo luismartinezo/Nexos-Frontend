@@ -10,22 +10,23 @@ const cabecera = {
 
 @Injectable()
 export class MesaService {
+  mesaURL = "http://localhost:8080/api/v1/";
   constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Mesa[]> {
-    return this.httpClient.get<Mesa[]>(environment + "mesa/lista", cabecera);
+    return this.httpClient.get<Mesa[]>(this.mesaURL + "mesa/lista", cabecera);
   }
 
   public detalle(id: number): Observable<Mesa> {
     return this.httpClient.get<Mesa>(
-      environment + `mesa/detalle/${id}`,
+      this.mesaURL + `mesa/detalle/${id}`,
       cabecera
     );
   }
 
   public crear(mesa: Mesa): Observable<any> {
     return this.httpClient.post<any>(
-      environment + "mesa/nuevo",
+      this.mesaURL + "mesa/nuevo",
       mesa,
       cabecera
     );
@@ -34,7 +35,7 @@ export class MesaService {
   public editar(mesa: Mesa, id: number): Observable<any> {
     console.log(mesa);
     return this.httpClient.put<any>(
-      environment + `mesa/actualizar/${id}`,
+      this.mesaURL + `mesa/actualizar/${id}`,
       mesa,
       cabecera
     );
@@ -42,7 +43,7 @@ export class MesaService {
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      environment + `mesa/borrar/${id}`,
+      this.mesaURL + `mesa/borrar/${id}`,
       cabecera
     );
   }

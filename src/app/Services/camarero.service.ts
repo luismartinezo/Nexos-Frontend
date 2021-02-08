@@ -10,25 +10,26 @@ const cabecera = {
 
 @Injectable()
 export class CamareroService {
+  camareroURL = "http://localhost:8080/api/v1/";
   constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Camarero[]> {
     return this.httpClient.get<Camarero[]>(
-      environment + "camarero/lista",
+      this.camareroURL + "camarero/lista",
       cabecera
     );
   }
 
   public detalle(id: number): Observable<Camarero> {
     return this.httpClient.get<Camarero>(
-      environment + `camarero/detalle/${id}`,
+      this.camareroURL + `camarero/detalle/${id}`,
       cabecera
     );
   }
 
   public crear(camarero: Camarero): Observable<any> {
     return this.httpClient.post<any>(
-      environment + "camarero/nuevo",
+      this.camareroURL + "camarero/nuevo",
       camarero,
       cabecera
     );
@@ -37,7 +38,7 @@ export class CamareroService {
   public editar(camarero: Camarero, id: number): Observable<any> {
     console.log(camarero);
     return this.httpClient.put<any>(
-      environment + `camarero/actualizar/${id}`,
+      this.camareroURL + `camarero/actualizar/${id}`,
       camarero,
       cabecera
     );
@@ -45,7 +46,7 @@ export class CamareroService {
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      environment + `camarero/borrar/${id}`,
+      this.camareroURL + `camarero/borrar/${id}`,
       cabecera
     );
   }
