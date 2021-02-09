@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "../../environment/environment";
 import { Cliente } from "../Models/cliente";
 
 const cabecera = {
@@ -44,7 +43,7 @@ export class ClienteService {
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(
-      this.clienteURL + `borrar/${id}`,
+      this.clienteURL + `eliminar/${id}`,
       cabecera
     );
   }

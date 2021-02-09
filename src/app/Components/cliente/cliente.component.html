@@ -20,7 +20,7 @@
 			<td>{{cliente.observaciones}}</td>
 			<td><button type="button" class="btn btn-info">Detalle</button></td>
 			<td><button type="button" class="btn btn-warning">Editar</button></td>
-			<td><button type="button" class="btn btn-danger">Eliminar</button></td>
+			<td><button type="button" class="btn btn-danger" (click)="eliminarCliente(cliente.id)">Eliminar</button></td>
 		</tr>
 	</tbody>
 </table>

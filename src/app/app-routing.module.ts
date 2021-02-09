@@ -26,6 +26,10 @@ const routes: Routes = [
     path: "nueva-factura",
     children: [{ path: "", component: NuevaFacturaComponent }]
   },
+  {
+   path: "nueva-factura",
+    children: [{ path: "", component: NuevaFacturaComponent }]
+  },
   { path: "camareros", component: CamareroComponent },
   {
     path: "nuevo-camarero",

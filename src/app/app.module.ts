@@ -24,7 +24,7 @@ import { CamareroService } from "./Services/camarero.service";
 import { MesaService } from "./Services/mesa.service";
 import { CocineroService } from "./Services/cocinero.service";
 import { DetalleFacturaService } from "./Services/detalle-factura.service";
-import { DetalleFacturaComponent } from "./Components/detalle-factura/detalle-factura.component";
+import { DetalleFacturaComponent } from './Components/detalle-factura/detalle-factura.component';
 
 @NgModule({
   imports: [
